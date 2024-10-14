@@ -1,4 +1,5 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -49,3 +50,16 @@ body {
     margin-bottom: 10px;
 }
 
+.add-card {
+    background-color: #dfe1e6;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.add-card:hover {
+    background-color: #c4c4c4;
+}
