@@ -13,15 +13,24 @@
       <div class="column">
         <div class="column-body" id="todo-column">
           <div class="title">To Do</div>
-          <div class="card low" id="sample-card">
-            <div class="task-title">Sample Task</div>
-            <div class="task-priority">Low</div>
-            <button class="edit-btn" onclick="openEditModal('sample-card')">
-              Edit
-            </button>
+          <div class="card Low" id="sample-card">
+            <div class="card-content">
+              <div class="task-title">Sample Task</div>
+              <div class="task-priority">Low</div>
+            </div>
+            <div class="button-group">
+              <button class="edit-btn" onclick="openEditModal('sample-card')">
+                Edit
+              </button>
+              <button class="delete-btn" onclick="deleteTask('sample-card')">
+                Delete
+              </button>
+            </div>
           </div>
         </div>
-        <div class="add-card" onclick="addTask('todo-column')">+ Add another card</div>
+        <div class="add-card" onclick="addTask('todo-column')">
+          + Add another card
+        </div>
       </div>
 
       <div class="column">
@@ -62,9 +71,9 @@
 
         <label for="task-priority">Priority:</label>
         <select id="task-priority" required>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
         </select>
 
         <button id="modal-action" onclick="handleTaskAction()">Add Task</button>
