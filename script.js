@@ -9,7 +9,7 @@ function addTask(columnId) {
 
   // Clear any existing values in the input fields
   document.getElementById("task-title").value = "";
-  document.getElementById("task-priority").value = "low";
+  document.getElementById("task-priority").value = "Low";
 
   // Open the modal for adding
   document.getElementById("task-modal").style.display = "flex";
@@ -21,9 +21,7 @@ function openEditModal(cardId) {
 
   const card = document.getElementById(cardId);
   const title = card.querySelector(".task-title").textContent;
-  const priority = card
-    .querySelector(".task-priority")
-    .textContent.toLowerCase();
+  const priority = card.querySelector(".task-priority").textContent;
 
   // Pre-fill modal with existing task details
   document.getElementById("task-title").value = title;
@@ -54,12 +52,15 @@ function handleTaskAction() {
     // Edit existing task
     const card = document.getElementById(currentCardId);
     card.querySelector(".task-title").textContent = title;
-    card.querySelector(".task-priority").textContent = `Priority: ${priority}`;
+    card.querySelector(".task-priority").textContent = `${priority}`;
     card.className = `card ${priority}`;
   } else {
     // Add new task
     const card = document.createElement("div");
     card.className = `card ${priority}`;
+
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "card-content";
 
     const taskTitle = document.createElement("div");
     taskTitle.className = "task-title";
@@ -67,7 +68,13 @@ function handleTaskAction() {
 
     const taskPriority = document.createElement("div");
     taskPriority.className = "task-priority";
-    taskPriority.textContent = `Priority: ${priority}`;
+    taskPriority.textContent = `${priority}`;
+
+    contentDiv.appendChild(taskTitle);
+    contentDiv.appendChild(taskPriority);
+
+    const buttonGroup = document.createElement("div");
+    buttonGroup.className = "button-group";
 
     const editButton = document.createElement("button");
     editButton.className = "edit-btn";
@@ -79,15 +86,15 @@ function handleTaskAction() {
     deleteButton.textContent = "Delete";
     deleteButton.onclick = () => deleteTask(card.id);
 
-    card.appendChild(taskTitle);
-    card.appendChild(taskPriority);
-    card.appendChild(editButton);
-    card.appendChild(deleteButton);
+    buttonGroup.appendChild(editButton);
+    buttonGroup.appendChild(deleteButton);
+
+    card.appendChild(contentDiv);
+    card.appendChild(buttonGroup);
 
     document.getElementById(currentColumnId).appendChild(card);
   }
 
-  // Close modal after action
   closeModal();
 }
 
