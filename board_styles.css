@@ -28,6 +28,7 @@ body {
 }
 
 .column {
+
     background-color: #ebecf0;
     border-radius: 5px;
     padding: 10px;
@@ -50,7 +51,7 @@ body {
     margin-bottom: 10px;
 }
 
-.add-card {
+.add-card, .add-list {
     background-color: #dfe1e6;
     border-radius: 5px;
     padding: 10px;
@@ -60,6 +61,6 @@ body {
     color: #333;
 }
 
-.add-card:hover {
+.add-card:hover, .add-list:hover {
     background-color: #c4c4c4;
 }
