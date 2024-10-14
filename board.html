@@ -13,14 +13,15 @@
       <div class="column">
         <div class="column-body" id="todo-column">
           <div class="title">To Do</div>
-          <div class="card low">
-            <div class="task-title">Finish Project Report</div>
-            <div class="task-priority">Priority: Low</div>
+          <div class="card low" id="sample-card">
+            <div class="task-title">Sample Task</div>
+            <div class="task-priority">Low</div>
+            <button class="edit-btn" onclick="openEditModal('sample-card')">
+              Edit
+            </button>
           </div>
         </div>
-        <div class="add-card" onclick="addTask('todo-column')">
-          + Add another card
-        </div>
+        <div class="add-card" onclick="addTask('todo-column')">+ Add another card</div>
       </div>
 
       <div class="column">
@@ -46,11 +47,11 @@
       </div>
     </div>
 
-    <!-- Task Input Modal -->
+    <!-- Task Modal (for both Add and Edit) -->
     <div id="task-modal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Add Task</h2>
+        <h2 id="modal-title">Add Task</h2>
         <label for="task-title">Task Title:</label>
         <input
           type="text"
@@ -66,7 +67,7 @@
           <option value="high">High</option>
         </select>
 
-        <button onclick="submitTask()">Add Task</button>
+        <button id="modal-action" onclick="handleTaskAction()">Add Task</button>
       </div>
     </div>
 

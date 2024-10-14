@@ -58,7 +58,8 @@ body {
     margin-bottom: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     gap: 8px;
     transition: transform 0.2s ease-in-out;
 }
@@ -109,6 +110,22 @@ body {
 .add-card:hover, .add-list:hover {
     background-color: #c4c4c4;
 }
+
+/* Edit Button */
+.edit-btn {
+    background-color: #0079bf;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.edit-btn:hover {
+    background-color: #005c99;
+}
+
 
 /* Modal Background */
 .modal {
