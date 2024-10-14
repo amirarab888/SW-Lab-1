@@ -1,44 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List</title>
-    <link rel="stylesheet" href="board_styles.css">
-</head>
-<body>
-  <div class="super-header"></div>
+    <link rel="stylesheet" href="board_styles.css" />
+  </head>
+  <body>
+    <div class="super-header"></div>
 
-  <div class="board">
-    <div class="column">
-      <div class="column-body">
-        <div class="title">To Do</div>
-        
-      </div>
-      <div class="add-card">+ Add another card</div>
-    </div>
-
-    <div class="column">
-      <div class="column-body" >
-        <div class="title">Doing</div>
-        
-      </div>
-      <div class="add-card">+ Add another card</div>
-    </div>
-
-    <div class="column">
-      <div class="column-body">
-        <div class="title">Done
-
+    <div class="board">
+      <div class="column">
+        <div class="column-body" id="todo-column">
+          <div class="title">To Do</div>
+          <div class="card low">
+            <div class="task-title">Finish Project Report</div>
+            <div class="task-priority">Priority: Low</div>
+          </div>
         </div>
-        
+        <div class="add-card" onclick="addTask('todo-column')">
+          + Add another card
+        </div>
       </div>
-      <div class="add-card">+ Add another card</div>
+
+      <div class="column">
+        <div class="column-body" id="doing-column">
+          <div class="title">Doing</div>
+        </div>
+        <div class="add-card" onclick="addTask('doing-column')">
+          + Add another card
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="column-body" id="done-column">
+          <div class="title">Done</div>
+        </div>
+        <div class="add-card" onclick="addTask('done-column')">
+          + Add another card
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="add-list">+ Add another list</div>
+      </div>
     </div>
 
-    <div class="column">
-      <div class="add-list">+ Add another list</div>
+    <!-- Task Input Modal -->
+    <div id="task-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Add Task</h2>
+        <label for="task-title">Task Title:</label>
+        <input
+          type="text"
+          id="task-title"
+          placeholder="Enter task title"
+          required
+        />
+
+        <label for="task-priority">Priority:</label>
+        <select id="task-priority" required>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <button onclick="submitTask()">Add Task</button>
+      </div>
     </div>
 
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
