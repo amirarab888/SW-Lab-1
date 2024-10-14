@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List</title>
-    <link rel="stylesheet" href="board_styles.css">
-</head>
-<body>
-  <div class="super-header"></div>
+    <link rel="stylesheet" href="board_styles.css" />
+  </head>
+  <body>
+    <div class="super-header"></div>
 
-  <div class="board">
-    <div class="column">
-      <div class="column-body">
-        <div class="title">To Do</div>
-        
-      </div>
-      <div class="add-card">+ Add another card</div>
-    </div>
-
-    <div class="column">
-      <div class="column-body" >
-        <div class="title">Doing</div>
-        
-      </div>
-      <div class="add-card">+ Add another card</div>
-    </div>
-
-    <div class="column">
-      <div class="column-body">
-        <div class="title">Done
-
+    <div class="board">
+      <div class="column">
+        <div class="column-body">
+          <div class="title">To Do</div>
+          <div class="card" id="sample-card">
+            <div class="task-title">Sample Task</div>
+            <div class="task-priority">Low</div>
+            <button class="edit-btn" onclick="openEditModal('sample-card')">
+              Edit
+            </button>
+          </div>
         </div>
-        
+        <div class="add-card">+ Add another card</div>
       </div>
-      <div class="add-card">+ Add another card</div>
+
+      <div class="column">
+        <div class="column-body">
+          <div class="title">Doing</div>
+        </div>
+        <div class="add-card">+ Add another card</div>
+      </div>
+
+      <div class="column">
+        <div class="column-body">
+          <div class="title">Done</div>
+        </div>
+        <div class="add-card">+ Add another card</div>
+      </div>
+
+      <div class="column">
+        <div class="add-list">+ Add another list</div>
+      </div>
+
+      <div id="edit-modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeEditModal()">&times;</span>
+          <h2>Edit Task</h2>
+          <label for="edit-title">Task Title:</label>
+          <input type="text" id="edit-title" placeholder="Enter new title" />
+          <label for="edit-priority">Priority:</label>
+          <select id="edit-priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <button onclick="saveEdit()">Save Changes</button>
+        </div>
+      </div>
     </div>
 
-    <div class="column">
-      <div class="add-list">+ Add another list</div>
-    </div>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
