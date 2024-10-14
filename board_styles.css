@@ -97,6 +97,7 @@ body {
 }
 
 
+
 .add-card, .add-list {
     background-color: #dfe1e6;
     border-radius: 5px;
@@ -126,8 +127,9 @@ body {
     background-color: #005c99;
 }
 
-/* Edit Modal Styling */
-#edit-modal {
+
+/* Modal Background */
+.modal {
     display: none; /* Hidden by default */
     position: fixed;
     top: 0;
