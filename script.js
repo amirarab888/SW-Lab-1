@@ -95,6 +95,8 @@ function handleTaskAction() {
     document.getElementById(currentColumnId).appendChild(card);
   }
 
+  initializeDragAndDrop();
+  sortTasksByPriority();
   closeModal();
 }
 
@@ -106,3 +108,86 @@ function deleteTask(cardId) {
     console.error("Card not found:", cardId);
   }
 }
+
+// Add draggable attributes to all cards
+let draggedCard = null;
+let placeholder = document.createElement("div");
+placeholder.className = "placeholder";
+
+function initializeDragAndDrop() {
+  document.querySelectorAll(".card").forEach((card) => {
+    card.setAttribute("draggable", true);
+    card.addEventListener("dragstart", onDragStart);
+    card.addEventListener("dragend", onDragEnd);
+  });
+
+  document.querySelectorAll(".column-body").forEach((column) => {
+    column.addEventListener("dragover", onDragOver);
+    column.addEventListener("drop", onDrop);
+    column.addEventListener("dragleave", onDragLeave);
+  });
+}
+
+function onDragStart(event) {
+  draggedCard = this;
+  setTimeout(() => (this.style.display = "none"), 0);
+}
+
+function onDragEnd(event) {
+  setTimeout(() => {
+    this.style.display = "flex";
+    placeholder.remove();
+    draggedCard = null;
+    sortTasksByPriority();
+  }, 0);
+}
+
+function onDragOver(event) {
+  event.preventDefault();
+  const column = event.currentTarget;
+
+  if (!column.contains(placeholder) && column.children.length === 0) {
+    column.appendChild(placeholder);
+  } else if (!column.contains(placeholder)) {
+    column.insertBefore(placeholder, null);
+  }
+}
+
+function onDrop(event) {
+  event.preventDefault();
+  const column = event.currentTarget;
+
+  if (placeholder) {
+    column.insertBefore(draggedCard, placeholder);
+    placeholder.remove();
+  } else {
+    column.appendChild(draggedCard);
+  }
+
+  initializeDragAndDrop();
+}
+
+function onDragLeave(event) {
+  const column = event.currentTarget;
+  if (column.contains(placeholder) && column.children.length === 1) {
+    placeholder.remove();
+  }
+}
+
+function sortTasksByPriority() {
+  const priorityOrder = { High: 1, Medium: 2, Low: 3 };
+
+  document.querySelectorAll(".column-body").forEach((column) => {
+    const tasks = Array.from(column.querySelectorAll(".card"));
+    tasks.sort((a, b) => {
+      const priorityA =
+        priorityOrder[a.querySelector(".task-priority").textContent] || 4;
+      const priorityB =
+        priorityOrder[b.querySelector(".task-priority").textContent] || 4;
+      return priorityA - priorityB;
+    });
+    tasks.forEach((task) => column.appendChild(task));
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initializeDragAndDrop);
