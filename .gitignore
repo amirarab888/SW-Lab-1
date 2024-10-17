@@ -1,0 +1,30 @@
+# Ignore node_modules/ if using any npm packages for development
+node_modules/
+
+# Ignore logs and OS-generated files
+*.log
+
+# Ignore temporary files created by text editors
+*.swp
+*.swo
+*.swn
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+
+# Ignore any build directories or temporary deployment files if used
+dist/
+build/
+
+# Ignore specific tools or IDE settings files (e.g., VSCode, JetBrains IDEs)
+.vscode/
+.idea/
+
+# Ignore SASS or other CSS preprocessor cache files (if used)
+.sass-cache/
+
+# Ignore environment-specific configuration files if applicable
+.env

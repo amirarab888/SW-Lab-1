@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="board_styles.css" />
+  </head>
+  <body>
+    <div class="super-header"></div>
+
+    <div class="board">
+      <div class="column">
+        <div class="column-body" id="todo-column">
+          <div class="title">To Do</div>
+          <div class="card Low" id="sample-card">
+            <div class="card-content">
+              <div class="task-title">Sample Task</div>
+              <div class="task-priority">Low</div>
+            </div>
+            <div class="button-group">
+              <button class="edit-btn" onclick="openEditModal('sample-card')">
+                Edit
+              </button>
+              <button class="delete-btn" onclick="deleteTask('sample-card')">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="add-card" onclick="addTask('todo-column')">
+          + Add another card
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="column-body" id="doing-column">
+          <div class="title">Doing</div>
+        </div>
+        <div class="add-card" onclick="addTask('doing-column')">
+          + Add another card
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="column-body" id="done-column">
+          <div class="title">Done</div>
+        </div>
+        <div class="add-card" onclick="addTask('done-column')">
+          + Add another card
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="add-list">+ Add another list</div>
+      </div>
+    </div>
+
+    <!-- Task Modal (for both Add and Edit) -->
+    <div id="task-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title">Add Task</h2>
+        <label for="task-title">Task Title:</label>
+        <input
+          type="text"
+          id="task-title"
+          placeholder="Enter task title"
+          required
+        />
+
+        <label for="task-priority">Priority:</label>
+        <select id="task-priority" required>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+
+        <button id="modal-action" onclick="handleTaskAction()">Add Task</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
