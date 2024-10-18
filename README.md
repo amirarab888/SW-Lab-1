@@ -12,8 +12,8 @@
 
 # مخزن (Repository)
 ## ساخت و دعوت همه اعضای گروه
-    1. [ ] ![image](https://github.com/user-attachments/assets/ac513e85-9b8b-4cf3-83ab-4845c73159d6)
-    2. [ ] ![image](https://github.com/user-attachments/assets/7c2fdace-af14-4068-8523-e99759eee0c6)
+1. [ ] ![image](https://github.com/user-attachments/assets/ac513e85-9b8b-4cf3-83ab-4845c73159d6)
+2. [ ] ![image](https://github.com/user-attachments/assets/7c2fdace-af14-4068-8523-e99759eee0c6)
 
     تنيمات اولیه شامل ایجاد یک مخزن Git و ایجاد یک شاخه‌ی اصلی (main) در GitHub بود. برای این‌کار ابتدا یک مخزن در GitHub ساخته و سپس فایل‌های اولیه‌ی را (شامل gitignore) در آن قرار دادیم.
 
